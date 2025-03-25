@@ -13,13 +13,12 @@
         }
 
         body {
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Soft pink gradient */
-            color: #d81b60; /* Deep pink text */
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            color: #d81b60;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding: 50px 0;
@@ -28,17 +27,16 @@
 
         h1 {
             font-size: 4.5em;
-            color: #ff80ab; /* Bubblegum pink */
+            color: #ff80ab;
             text-shadow: 0 0 15px rgba(255, 128, 171, 0.7);
             animation: glow 2s infinite alternate;
         }
 
         h1 span {
             font-family: 'Dancing Script', cursive;
-            color: #f06292; /* Cute pink */
+            color: #f06292;
         }
 
-        /* Sections */
         section {
             padding: 60px 20px;
             text-align: center;
@@ -49,7 +47,6 @@
             align-items: center;
         }
 
-        /* Welcome Section */
         #welcome {
             position: relative;
         }
@@ -58,35 +55,37 @@
             font-size: 1.5em;
             max-width: 700px;
             animation: fadeIn 2s forwards;
-            color: #c2185b; /* Warm pink */
+            color: #c2185b;
         }
 
         .welcome-image {
             margin: 30px 0;
             max-width: 300px;
             width: 100%;
-            opacity: 0.7; /* Translucent effect */
+            opacity: 0.7;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(244, 143, 177, 0.5); /* Pink shadow */
+            box-shadow: 0 5px 15px rgba(244, 143, 177, 0.5);
         }
 
-        /* Gallery */
         #gallery {
             position: relative;
         }
 
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
             gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 10px;
         }
 
         .photo-card {
             perspective: 1000px;
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
         }
 
         .photo-inner {
@@ -107,7 +106,7 @@
             height: 100%;
             backface-visibility: hidden;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(244, 143, 177, 0.5); /* Pink shadow */
+            box-shadow: 0 5px 15px rgba(244, 143, 177, 0.5);
         }
 
         .photo-front img {
@@ -115,11 +114,11 @@
             height: 100%;
             object-fit: cover;
             border-radius: 15px;
-            border: 3px solid #ffccbc; /* Peach border */
+            border: 3px solid #ffccbc;
         }
 
         .photo-back {
-            background: #f48fb1; /* Light pink */
+            background: #f48fb1;
             color: #fff;
             display: flex;
             align-items: center;
@@ -128,7 +127,6 @@
             transform: rotateY(180deg);
         }
 
-        /* Spin the Birthday Wheel */
         #spin-wheel {
             position: relative;
         }
@@ -141,7 +139,7 @@
 
         .wheel-message-title {
             font-size: 2em;
-            color: #ff4081; /* Bright pink */
+            color: #ff4081;
             font-family: 'Dancing Script', cursive;
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
@@ -166,7 +164,6 @@
             transform: scale(1.05);
         }
 
-        /* Fixed Pointer */
         .pointer {
             position: absolute;
             top: -20px;
@@ -174,7 +171,7 @@
             transform: translateX(-50%);
             width: 20px;
             height: 20px;
-            background: #ff1744; /* Red pointer */
+            background: #ff1744;
             clip-path: polygon(50% 100%, 0 0, 100% 0);
             z-index: 1;
         }
@@ -191,7 +188,6 @@
             opacity: 1;
         }
 
-        /* Background Hearts */
         .hearts {
             position: fixed;
             top: 0;
@@ -206,12 +202,11 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            background: #ff9999; /* Deeper pink heart */
+            background: #ff9999;
             clip-path: path('M5 10 C2 7, 0 4, 0 2 A3 3 0 0 1 5 0 A3 3 0 0 1 10 2 C10 4, 8 7, 5 10');
             animation: rain 5s linear infinite;
         }
 
-        /* Animations */
         @keyframes glow {
             0% { text-shadow: 0 0 10px #ff80ab; }
             100% { text-shadow: 0 0 20px #ff80ab; }
@@ -232,12 +227,22 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             h1 { font-size: 3em; }
             #welcome p { font-size: 1.2em; }
             .welcome-image { max-width: 200px; }
-            .photo-card { width: 120px; height: 120px; }
+            .photo-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, auto);
+                gap: 10px;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .photo-card {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
             .wheel-container { width: 250px; height: 250px; }
             .wheel-message { font-size: 1.2em; }
             .wheel-message-title { font-size: 1.5em; }
@@ -262,37 +267,37 @@
         <div class="photo-grid">
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="1.jpg" alt="Mannat 1"></div>
+                    <div class="photo-front"><img src="1.jpg" alt="Mannat 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+1'; console.error('Failed to load image: 1.jpg')"></div>
                     <div class="photo-back">Perfect!</div>
                 </div>
             </div>
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="2.jpg" alt="Mannat 2"></div>
+                    <div class="photo-front"><img src="2.jpg" alt="Mannat 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+2'; console.error('Failed to load image: 2.jpg')"></div>
                     <div class="photo-back">Gorgeous!</div>
                 </div>
             </div>
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="3.jpg" alt="Mannat 3"></div>
+                    <div class="photo-front"><img src="3.jpg" alt="Mannat 3" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+3'; console.error('Failed to load image: 3.jpg')"></div>
                     <div class="photo-back">So Cute!</div>
                 </div>
             </div>
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="4.jpg" alt="Mannat 4"></div>
+                    <div class="photo-front"><img src="4.jpg" alt="Mannat 4" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+4'; console.error('Failed to load image: 4.jpg')"></div>
                     <div class="photo-back">Pure Joy!</div>
                 </div>
             </div>
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="6.jpg" alt="Mannat 5"></div>
+                    <div class="photo-front"><img src="6.jpg" alt="Mannat 5" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+5'; console.error('Failed to load image: 6.jpg')"></div>
                     <div class="photo-back">Amazing!</div>
                 </div>
             </div>
             <div class="photo-card">
                 <div class="photo-inner">
-                    <div class="photo-front"><img src="7.jpg" alt="Mannat 6"></div>
+                    <div class="photo-front"><img src="7.jpg" alt="Mannat 6" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=Photo+6'; console.error('Failed to load image: 7.jpg')"></div>
                     <div class="photo-back">Shining Star!</div>
                 </div>
             </div>
@@ -309,7 +314,6 @@
     </section>
 
     <script>
-        // Typewriter Effect with Original Text
         const messageText = "Dear Mannat, today is all about you! Wishing you a day full of magic, love, and joy. You’re a gift to the world, and I hope this birthday brings you everything you dream of. Let’s celebrate you! 🎉";
         let i = 0;
         function typeWriter() {
@@ -320,19 +324,17 @@
             }
         }
 
-        // Create Background Hearts
         function createHearts() {
             const heartsContainer = document.querySelector(".hearts");
             for (let i = 0; i < 100; i++) {
                 const heart = document.createElement("div");
                 heart.className = "heart";
                 heart.style.left = Math.random() * 100 + "%";
-                heart.style.animationDelay = Math.random() * 5 + "s"; // Random delay for staggered falling
+                heart.style.animationDelay = Math.random() * 5 + "s";
                 heartsContainer.appendChild(heart);
             }
         }
 
-        // Spin the Wheel with Messages
         const wishes = [
             "Mannat, you’re the coolest birthday girl ever!",
             "Here’s to a day as awesome as your smile!",
@@ -349,7 +351,7 @@
 
             const wheel = document.querySelector(".wheel");
             const result = document.getElementById("wheel-result");
-            const randomDeg = Math.floor(Math.random() * 3600) + 720; // Spin 2-10 times
+            const randomDeg = Math.floor(Math.random() * 3600) + 720;
 
             wheel.style.transform = `rotate(${randomDeg}deg)`;
             result.classList.remove("show");
@@ -357,15 +359,13 @@
 
             setTimeout(() => {
                 const finalAngle = randomDeg % 360;
-                // Map the angle to the correct segment (0-60° is 0, 60-120° is 1, etc.)
                 const segment = Math.floor(finalAngle / 60);
                 result.textContent = wishes[segment];
                 result.classList.add("show");
                 isSpinning = false;
-            }, 3000); // Match transition duration
+            }, 3000);
         }
 
-        // Start Everything
         window.onload = () => {
             createHearts();
             typeWriter();
